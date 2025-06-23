@@ -71,5 +71,14 @@ def check_index_ready(collection: Collection, index_name: str) -> None:
         print(f"{index_name} index status: {status}")
         time.sleep(SLEEP_TIMER)
 
-def visualize_graph(graph):
-    display(Image(graph.draw_mermaid_png()))
+def visualize_graph(app):
+    """
+    Visualize the graph of the application using Mermaid.
+
+    Args:
+        app: The application instance containing the graph to visualize.
+
+    Returns:
+        None
+    """
+    display(Image(app.get_graph().draw_mermaid_png()))
