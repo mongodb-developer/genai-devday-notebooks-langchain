@@ -72,6 +72,4 @@ def check_index_ready(collection: Collection, index_name: str) -> None:
         time.sleep(SLEEP_TIMER)
 
 def visualize_graph(graph):
-    # display(Image(graph.draw_mermaid_png()))
-    nest_asyncio.apply()
-    display(Image(graph.get_graph().draw_mermaid_png(draw_method=MermaidDrawMethod.PYPPETEER)))
+    display(Image(graph.draw_mermaid_png()))
