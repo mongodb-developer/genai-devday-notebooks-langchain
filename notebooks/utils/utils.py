@@ -2,6 +2,9 @@ from pymongo.errors import OperationFailure
 from pymongo.collection import Collection
 from typing import Dict
 import time
+from IPython.display import Image, display
+from langchain_core.runnables.graph import MermaidDrawMethod
+import nest_asyncio
 
 SLEEP_TIMER = 5
 
@@ -67,3 +70,8 @@ def check_index_ready(collection: Collection, index_name: str) -> None:
 
         print(f"{index_name} index status: {status}")
         time.sleep(SLEEP_TIMER)
+
+def visualize_graph(graph):
+    # display(Image(graph.draw_mermaid_png()))
+    nest_asyncio.apply()
+    display(Image(graph.get_graph().draw_mermaid_png(draw_method=MermaidDrawMethod.PYPPETEER)))
